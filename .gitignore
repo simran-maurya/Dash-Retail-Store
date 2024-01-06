@@ -1,0 +1,40 @@
+*aws/*
+.idea/
+.env
+.log
+.venv/
+.vscode/
+media/
+mypython/
+*.pyc
+**/__pycache__/
+**/migrations/**
+!**/migrations
+**/migrations/
+!**/migrations/__init__.py
+asgi.py
+*.sqlite3
+**/McD-Discount-Portal/mypython
+*.csv
+*.zip
+*.parquet
+*.xls
+*.xlsx
+
+# ignore joblib files
+*.joblib
+
+# ignore log files
+**/logs/
+**/*.log
+
+# ignore package version file
+**/_version.py
+
+.vscode/settings.json
+
+# Ignore dataset and model folders
+mcdds/data
+mcdds/artifacts
+mcdds/mlruns
+mcdds/notebooks/revan_dev/test.*
