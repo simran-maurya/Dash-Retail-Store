@@ -1,7 +1,9 @@
 from dash import html
 
-layout = html.Div("Stores Page",
-                  style={'font-size':20,
-                         'textAlign':'center'
-                         }
-                  )
+def stores_layout(df):
+       layout = html.Div("Stores Page",
+                     style={'font-size':20,
+                            'textAlign':'center'
+                            }
+                     )
+       return layout
