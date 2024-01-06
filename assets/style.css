@@ -1,0 +1,18 @@
+body {
+  font-family: "Arial", sans-serif;
+}
+
+h1 h2 h3 h4 h5 h6 {
+  font-family: "Arial", sans-serif;
+}
+
+div {
+  font-family: "Arial", sans-serif;
+}
+
+.nav-link:active,
+.nav-link:focus {
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid #d70200;
+}
