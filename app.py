@@ -4,26 +4,27 @@ from views import navbar, dashboard, stores, accounts
 from dash.exceptions import PreventUpdate
 import pandas as pd 
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP,'/assets/style.css'])
+df = pd.read_csv('assets/store_details.csv')
 
-class Singleton:
-    __shared_state = dict()
-    df = pd.DataFrame()
-    new_df = pd.DataFrame()
-    edited_df = pd.DataFrame()
+# class Singleton:
+#     __shared_state = dict()
+#     df = pd.DataFrame()
+#     new_df = pd.DataFrame()
+#     edited_df = pd.DataFrame()
 
-    def __init__(self):
-        self.__dict__ = self.__shared_state
+#     def __init__(self):
+#         self.__dict__ = self.__shared_state
 
-    def __str__(self):
-        return self.df
+#     def __str__(self):
+#         return self.df
 
-    def read_file(self):
-        self.df = pd.read_csv('assets/store_details.csv')
-        self.new_df = pd.DataFrame()
-        self.edited_df = pd.DataFrame()
+#     def read_file(self):
+#         self.df = pd.read_csv('assets/store_details.csv')
+#         self.new_df = pd.DataFrame()
+#         self.edited_df = pd.DataFrame()
 
-singleton_instance = Singleton()
-singleton_instance.read_file()
+# singleton_instance = Singleton()
+# singleton_instance.read_file()
 
 
 nav_bar = navbar.navbar_layout()
@@ -69,13 +70,13 @@ def display_page(pathname,root_url,is_loaded):
 
     if is_loaded:
         if (pathname == root_url + 'dashboard'):
-            return [dashboard.dashboard_layout(singleton_instance.df)]
+            return [dashboard.dashboard_layout(df)]
         
         elif (pathname == root_url + 'stores'):
-            return [stores.stores_layout(singleton_instance.df)]
+            return [stores.stores_layout(df)]
         
         elif (pathname == root_url + 'accounts'):
-            return [accounts.accounts_layout(singleton_instance.df)]
+            return [accounts.accounts_layout(df)]
         
         else: 
             return [html.Div("Unauthorized Access",style={'textAlign':'center'})]
